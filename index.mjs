@@ -1,3 +1,3 @@
-import createNode from "./createNode.mjs";
+import createTree from "./createTree.mjs";
 
-createNode();
+createTree();
