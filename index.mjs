@@ -16,12 +16,12 @@ tree.prettyPrint();
 console.log(`
 Deleting...
 `);
-// tree.deleteItem(69);
-// tree.prettyPrint();
-// tree.deleteItem(324);
-// tree.prettyPrint();
-// tree.deleteItem(-6969);
-// tree.prettyPrint();
+tree.deleteItem(69);
+tree.prettyPrint();
+tree.deleteItem(324);
+tree.prettyPrint();
+tree.deleteItem(-6969);
+tree.prettyPrint();
 tree.deleteItem(4);
 tree.prettyPrint();
 tree.deleteItem(8);
