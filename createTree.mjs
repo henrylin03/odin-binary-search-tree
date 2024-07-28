@@ -24,19 +24,19 @@ const createTree = (inputArr) => {
   }
 
   function insert(value) {
-    const insertIntoBST = (rootNode, value) => {
+    const insertIntoBST = (rootNode, val) => {
       // base case: add node with value if tree empty OR space available on leaf
-      if (rootNode === null) return createNode(value);
+      if (rootNode === null) return createNode(val);
 
       // no duplicates allowed
-      if (value === rootNode.data)
+      if (val === rootNode.data)
         return console.error(
-          `Cannot insert value, ${value}, as it already exists in the binary search tree.`
+          `Cannot insert value, ${val}, as it already exists in the binary search tree.`
         );
 
-      if (value > rootNode.data)
-        rootNode.right = insertIntoBST(rootNode.right, value);
-      else rootNode.left = insertIntoBST(rootNode.left, value);
+      if (val > rootNode.data)
+        rootNode.right = insertIntoBST(rootNode.right, val);
+      else rootNode.left = insertIntoBST(rootNode.left, val);
 
       return rootNode;
     };
@@ -45,7 +45,42 @@ const createTree = (inputArr) => {
   }
 
   function deleteItem(value) {
-    return;
+    const getNextMinValue = (node) => {
+      let res = node.value;
+
+      // stop when there is no smaller value (no left subtree)
+      while (node.left !== null) {
+        res = node.left.value;
+        node = node.left; // traverse down and left
+      }
+
+      return res;
+    };
+
+    const deleteFromBST = (rootNode, val) => {
+      if (rootNode === null) return rootNode;
+
+      if (val > rootNode.data)
+        rootNode.right = deleteFromBST(rootNode.right, val);
+      else if (val < rootNode.data)
+        rootNode.left = deleteFromBST(rootNode.left, val);
+      // if the node value matches, we've found the node for deletion
+      else {
+        // node with only one child or no child (is leaf node)
+        if (rootNode.left === null) return rootNode.right;
+        else if (rootNode.right === null) return rootNode.left;
+
+        // node with 2 children -> get next largest in right subtree
+        rootNode.value = getNextMinValue(rootNode.right);
+
+        // delete that next largest value
+        rootNode.right = deleteFromBST(rootNode.right, value);
+      }
+
+      return rootNode;
+    };
+
+    return deleteFromBST(root, value);
   }
 
   function prettyPrint(node = root, prefix = "", isLeft = true) {
