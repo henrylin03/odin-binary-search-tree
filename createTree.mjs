@@ -43,6 +43,10 @@ const createTree = (inputArr) => {
     return insertIntoBST(root, value);
   }
 
+  function deleteItem(value) {
+    return;
+  }
+
   function prettyPrint(node = root, prefix = "", isLeft = true) {
     if (node === null) return;
     if (node.right !== null) {
@@ -54,7 +58,7 @@ const createTree = (inputArr) => {
     }
   }
 
-  return { buildTree, insert, prettyPrint };
+  return { buildTree, deleteItem, insert, prettyPrint };
 };
 
 export default createTree;

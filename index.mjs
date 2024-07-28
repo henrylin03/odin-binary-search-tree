@@ -16,3 +16,14 @@ tree.insert(420);
 tree.insert(-6969);
 
 tree.prettyPrint();
+
+// deleting
+console.log(`
+Deleting...
+`);
+tree.deleteItem(69);
+tree.deleteItem(-6969);
+tree.deleteItem(4);
+tree.deleteItem(8); // attempt to delete root node??
+
+tree.prettyPrint();
