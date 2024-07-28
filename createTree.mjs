@@ -23,6 +23,26 @@ const createTree = (inputArr) => {
     return sortedArrayToBST(0, cleanedArr.length - 1);
   }
 
+  function insert(value) {
+    const insertIntoBST = (rootNode, value) => {
+      if (rootNode === null) return createNode(value);
+
+      // no duplicates allowed
+      if (value === rootNode.data)
+        return console.error(
+          `Cannot insert value, ${value}, as it already exists in the binary search tree.`
+        );
+
+      if (value > rootNode.data)
+        rootNode.right = insertIntoBST(rootNode.right, value);
+      else rootNode.left = insertIntoBST(rootNode.left, value);
+
+      return rootNode;
+    };
+
+    return insertIntoBST(root, value);
+  }
+
   function prettyPrint(node = root, prefix = "", isLeft = true) {
     if (node === null) return;
     if (node.right !== null) {
@@ -34,7 +54,7 @@ const createTree = (inputArr) => {
     }
   }
 
-  return { root, buildTree, prettyPrint };
+  return { buildTree, insert, prettyPrint };
 };
 
 export default createTree;
