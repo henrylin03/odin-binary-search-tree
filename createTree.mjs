@@ -25,6 +25,7 @@ const createTree = (inputArr) => {
 
   function insert(value) {
     const insertIntoBST = (rootNode, value) => {
+      // base case: add node with value if tree empty OR space available on leaf
       if (rootNode === null) return createNode(value);
 
       // no duplicates allowed
