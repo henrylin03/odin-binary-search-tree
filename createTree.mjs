@@ -4,8 +4,8 @@ const sortAndDeduplicateArray = (inputArr) =>
   Float32Array.from([...new Set(inputArr)]).sort();
 
 const createTree = (inputArr) => {
-  const root = buildTree();
   const cleanedArr = sortAndDeduplicateArray(inputArr);
+  const root = buildTree();
 
   function buildTree() {
     const sortedArrayToBST = (start, end) => {
@@ -14,8 +14,8 @@ const createTree = (inputArr) => {
       const midIdx = parseInt((start + end) / 2);
       const node = createNode(cleanedArr[midIdx]);
 
-      node.left = sortedArrayToBST(start, mid - 1);
-      node.right = sortedArrayToBST(mid + 1, end);
+      node.left = sortedArrayToBST(start, midIdx - 1);
+      node.right = sortedArrayToBST(midIdx + 1, end);
 
       return node;
     };
