@@ -3,7 +3,7 @@ import createNode from "./createNode.mjs";
 const createTree = (arr) => {
   const root = buildTree(arr);
 
-  function buildTree(inputArr) {
+  function buildTree() {
     const newNode = createNode();
     return newNode;
   }
