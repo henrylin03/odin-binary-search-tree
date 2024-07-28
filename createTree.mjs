@@ -87,6 +87,13 @@ Deleting node with value = ${value}
     return deleteFromBST(root, value);
   }
 
+  function find(value) {
+    // do i need to do this recursively?? probably not...\
+
+    console.log("finding node with value:", value);
+    return;
+  }
+
   function prettyPrint(node = root, prefix = "", isLeft = true) {
     if (node === null) return;
     if (node.right !== null) {
@@ -98,7 +105,7 @@ Deleting node with value = ${value}
     }
   }
 
-  return { buildTree, deleteItem, insert, prettyPrint };
+  return { buildTree, deleteItem, find, insert, prettyPrint };
 };
 
 export default createTree;
