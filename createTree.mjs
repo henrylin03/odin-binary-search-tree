@@ -1,11 +1,14 @@
+import createNode from "./createNode.mjs";
+
 const createTree = (arr) => {
   const root = buildTree(arr);
 
   function buildTree(inputArr) {
-    return inputArr;
+    const newNode = createNode();
+    return newNode;
   }
 
-  const prettyPrint = (node, prefix = "", isLeft = true) => {
+  const prettyPrint = (node = root, prefix = "", isLeft = true) => {
     if (node === null) {
       return;
     }
