@@ -1,14 +1,15 @@
 import createNode from "./createNode.mjs";
 
 const createTree = (arr) => {
-  const root = buildTree(arr);
+  const root = buildTree();
+  const cleanedArr = sortAndDeduplicateArray(arr);
 
   function buildTree() {
     const newNode = createNode();
     return newNode;
   }
 
-  const prettyPrint = (node = root, prefix = "", isLeft = true) => {
+  function prettyPrint(node = root, prefix = "", isLeft = true) {
     if (node === null) return;
     if (node.right !== null) {
       prettyPrint(node.right, `${prefix}${isLeft ? "│   " : "    "}`, false);
@@ -17,9 +18,12 @@ const createTree = (arr) => {
     if (node.left !== null) {
       prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
     }
-  };
+  }
 
   return { buildTree, prettyPrint };
 };
+
+const sortAndDeduplicateArray = (inputArr) =>
+  Float32Array.from([...new Set(inputArr)]).sort();
 
 export default createTree;
