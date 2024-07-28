@@ -1,5 +1,9 @@
-const createTree = () => {
-  console.log("hi, i am a tree");
+const createTree = (arr) => {
+  const root = buildTree(arr);
+
+  const buildTree = (arr) => {
+    return;
+  };
 };
 
 export default createTree;
