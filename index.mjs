@@ -10,6 +10,7 @@ tree.prettyPrint();
 console.log(`
 Inserting...
 `);
+tree.insert(8); // expected: error
 tree.insert(69);
 tree.insert(420);
 tree.insert(-6969);

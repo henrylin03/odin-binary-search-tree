@@ -24,15 +24,23 @@ const createTree = (inputArr) => {
   }
 
   function insert(value) {
-    // todo: if value already exists in tree, we cannot accept, so throw error
+    const insertIntoBST = (rootNode, value) => {
+      if (rootNode === null) return createNode(value);
 
-    // empty tree
-    if (!root) return createNode(value);
+      // no duplicates allowed
+      if (value === rootNode.data)
+        return console.error(
+          `Cannot insert value, ${value}, as it already exists in the binary search tree.`
+        );
 
-    // if (value < root.data) root.left = insert(value);
-    // else if (value > root.data) root.right = insert(value);
+      if (value > rootNode.data)
+        rootNode.right = insertIntoBST(rootNode.right, value);
+      else rootNode.left = insertIntoBST(rootNode.left, value);
 
-    return root;
+      return rootNode;
+    };
+
+    return insertIntoBST(root, value);
   }
 
   function prettyPrint(node = root, prefix = "", isLeft = true) {
