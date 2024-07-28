@@ -34,7 +34,7 @@ const createTree = (inputArr) => {
     }
   }
 
-  return { root, buildTree, prettyPrint };
+  return { buildTree, prettyPrint };
 };
 
 export default createTree;
