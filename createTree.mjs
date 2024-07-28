@@ -9,9 +9,7 @@ const createTree = (arr) => {
   }
 
   const prettyPrint = (node = root, prefix = "", isLeft = true) => {
-    if (node === null) {
-      return;
-    }
+    if (node === null) return;
     if (node.right !== null) {
       prettyPrint(node.right, `${prefix}${isLeft ? "│   " : "    "}`, false);
     }
