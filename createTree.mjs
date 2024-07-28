@@ -87,6 +87,21 @@ Deleting node with value = ${value}
     return deleteFromBST(root, value);
   }
 
+  function find(value) {
+    console.log("\nSearching node with value:", value);
+
+    let currentNode = root;
+    while (currentNode) {
+      console.log(`Currently, we are on ${currentNode.data}`);
+      if (currentNode.data === value) return currentNode;
+      if (currentNode.data > value) currentNode = currentNode.left;
+      else if (currentNode.data < value) currentNode = currentNode.right;
+    }
+
+    console.log(`Value, ${value}, was not found`);
+    return null;
+  }
+
   function prettyPrint(node = root, prefix = "", isLeft = true) {
     if (node === null) return;
     if (node.right !== null) {
@@ -98,7 +113,7 @@ Deleting node with value = ${value}
     }
   }
 
-  return { buildTree, deleteItem, insert, prettyPrint };
+  return { buildTree, deleteItem, find, insert, prettyPrint };
 };
 
 export default createTree;
