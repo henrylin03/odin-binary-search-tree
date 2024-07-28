@@ -88,10 +88,18 @@ Deleting node with value = ${value}
   }
 
   function find(value) {
-    // do i need to do this recursively?? probably not...\
+    console.log("\nSearching node with value:", value);
 
-    console.log("finding node with value:", value);
-    return;
+    let currentNode = root;
+    while (currentNode) {
+      console.log(`Currently, we are on ${currentNode.data}`);
+      if (currentNode.data === value) return currentNode;
+      if (currentNode.data > value) currentNode = currentNode.left;
+      else if (currentNode.data < value) currentNode = currentNode.right;
+    }
+
+    console.log(`Value, ${value}, was not found`);
+    return null;
   }
 
   function prettyPrint(node = root, prefix = "", isLeft = true) {
