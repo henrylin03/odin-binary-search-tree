@@ -23,6 +23,18 @@ const createTree = (inputArr) => {
     return sortedArrayToBST(0, cleanedArr.length - 1);
   }
 
+  function insert(value) {
+    // todo: if value already exists in tree, we cannot accept, so throw error
+
+    // empty tree
+    if (!root) return createNode(value);
+
+    // if (value < root.data) root.left = insert(value);
+    // else if (value > root.data) root.right = insert(value);
+
+    return root;
+  }
+
   function prettyPrint(node = root, prefix = "", isLeft = true) {
     if (node === null) return;
     if (node.right !== null) {
@@ -34,7 +46,7 @@ const createTree = (inputArr) => {
     }
   }
 
-  return { buildTree, prettyPrint };
+  return { buildTree, insert, prettyPrint };
 };
 
 export default createTree;
