@@ -49,7 +49,6 @@ const createTree = (inputArr) => {
 Deleting node with value = ${value}
     `);
     const getNextLargestData = (node) => {
-      console.log(`finding the next largest value for node: ${node.data}...`);
       let res = node.data;
 
       // stop when there is no smaller value (no left subtree)
@@ -58,14 +57,11 @@ Deleting node with value = ${value}
         node = node.left; // traverse down and left
       }
 
-      console.log(`next largest value found: ${res}`);
-
       return res;
     };
 
     const deleteFromBST = (rootNode, val) => {
       if (rootNode === null) return rootNode;
-      console.log(`Traversing to node with data: ${rootNode.data}`);
 
       if (val > rootNode.data)
         rootNode.right = deleteFromBST(rootNode.right, val);
