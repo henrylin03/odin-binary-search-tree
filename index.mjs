@@ -22,6 +22,7 @@ console.log(`
 Deleting...
 `);
 tree.deleteItem(69);
+tree.deleteItem(324);
 tree.deleteItem(-6969);
 tree.deleteItem(4);
 tree.deleteItem(8); // attempt to delete root node??
