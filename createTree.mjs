@@ -46,8 +46,7 @@ const createTree = (inputArr) => {
 
   function deleteItem(value) {
     console.log(`
-Deleting node with value = ${value}
-    `);
+Deleting node with value = ${value}`);
     const getNextLargestData = (node) => {
       let res = node.data;
 
@@ -124,6 +123,23 @@ Deleting node with value = ${value}
     }
 
     return console.error(`Node with value ${node.data} was not found`);
+  }
+
+  function isBalanced() {
+    let res = true;
+
+    const checkHeightDifference = (node) => {
+      if (node === null) return -1;
+      const leftHeight = checkHeightDifference(node.left);
+      const rightHeight = checkHeightDifference(node.right);
+
+      if (Math.abs(leftHeight - rightHeight) > 1) res = false;
+
+      return 1 + Math.max(leftHeight, rightHeight);
+    };
+
+    checkHeightDifference(root);
+    return res;
   }
 
   // bfs
@@ -204,6 +220,7 @@ Deleting node with value = ${value}
     height,
     inOrder,
     insert,
+    isBalanced,
     levelOrder,
     preOrder,
     prettyPrint,
