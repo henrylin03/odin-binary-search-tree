@@ -7,7 +7,9 @@ const tree = createTree(testArray);
 tree.buildTree();
 tree.prettyPrint();
 
-console.log(tree.depth(tree.find(8))); // expected: 0
-console.log(tree.depth(tree.find(23))); // expected: 1
-console.log(tree.depth(tree.find(6345))); // expected: 3
-console.log(tree.depth(tree.find(-6969))); // expected: error
+console.log(tree.isBalanced()); // expected true
+
+// TODO: CREATE AN UNBALANCED TREE AND THEN TEST
+
+//TODO: CREATE A BALANCED TREE AND TEST
+console.log(tree.isBalanced()); // expected true

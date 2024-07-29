@@ -126,6 +126,10 @@ Deleting node with value = ${value}
     return console.error(`Node with value ${node.data} was not found`);
   }
 
+  function isBalanced() {
+    return true; // or false - returns boolean
+  }
+
   // bfs
   function levelOrder(callback) {
     if (arguments.length === 0 || typeof callback !== "function")
@@ -204,6 +208,7 @@ Deleting node with value = ${value}
     height,
     inOrder,
     insert,
+    isBalanced,
     levelOrder,
     preOrder,
     prettyPrint,
