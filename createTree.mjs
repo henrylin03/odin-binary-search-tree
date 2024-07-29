@@ -142,19 +142,6 @@ Deleting node with value = ${value}`);
     return res;
   }
 
-  // function isBalanced() {
-  //   const isBalancedSubtree = (node) => {
-  //     if (node === null) return true;
-  //     return (
-  //       isBalancedSubtree(node.left) &&
-  //       isBalancedSubtree(node.right) &&
-  //       Math.abs(height(node.left) - height(node.right)) <= 1
-  //     );
-  //   };
-
-  //   return isBalancedSubtree(root);
-  // }
-
   // bfs
   function levelOrder(callback) {
     if (arguments.length === 0 || typeof callback !== "function")
