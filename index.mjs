@@ -10,4 +10,3 @@ tree.prettyPrint();
 
 // test levelOrder traversal
 tree.levelOrder(printData);
-tree.levelOrder(); // expect: error

@@ -106,12 +106,14 @@ Deleting node with value = ${value}
     if (arguments.length === 0 || typeof callback !== "function")
       throw new TypeError("Parameter is not a callback function!");
 
-    // level order traverse and apply callback function to every node
-    const queue = [];
-    // visit node at the start of queue (FIFO)
-    // when we visit a node, its children are added to the queue
-    let currentNode = root;
-    callback(currentNode);
+    const queue = [root];
+    while (queue.length) {
+      const currentNode = queue.shift();
+      callback(currentNode);
+
+      if (currentNode.left) queue.push(currentNode.left);
+      if (currentNode.right) queue.push(currentNode.right);
+    }
   }
 
   function prettyPrint(node = root, prefix = "", isLeft = true) {
