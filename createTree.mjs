@@ -126,17 +126,34 @@ Deleting node with value = ${value}`);
   }
 
   function isBalanced() {
-    const isBalancedSubtree = (node) => {
-      if (node === null) return true;
-      return (
-        isBalancedSubtree(node.left) &&
-        isBalancedSubtree(node.right) &&
-        Math.abs(height(node.left) - height(node.right)) <= 1
-      );
+    let res = true;
+
+    const checkHeightDifference = (node) => {
+      if (node === null) return -1;
+      const leftHeight = checkHeightDifference(node.left);
+      const rightHeight = checkHeightDifference(node.right);
+
+      if (Math.abs(leftHeight - rightHeight) > 1) res = false;
+
+      return 1 + Math.max(leftHeight, rightHeight);
     };
 
-    return isBalancedSubtree(root);
+    checkHeightDifference(root);
+    return res;
   }
+
+  // function isBalanced() {
+  //   const isBalancedSubtree = (node) => {
+  //     if (node === null) return true;
+  //     return (
+  //       isBalancedSubtree(node.left) &&
+  //       isBalancedSubtree(node.right) &&
+  //       Math.abs(height(node.left) - height(node.right)) <= 1
+  //     );
+  //   };
+
+  //   return isBalancedSubtree(root);
+  // }
 
   // bfs
   function levelOrder(callback) {
