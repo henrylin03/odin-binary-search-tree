@@ -102,6 +102,16 @@ Deleting node with value = ${value}
     return null;
   }
 
+  function levelOrder(callback) {
+    // throw error if callback function not provided (or is not a function)
+    // level order traverse and apply callback function to every node
+    const queue = [];
+    // visit node at the start of queue (FIFO)
+    // when we visit a node, its children are added to the queue
+    let currentNode = root;
+    callback(currentNode);
+  }
+
   function prettyPrint(node = root, prefix = "", isLeft = true) {
     if (node === null) return;
     if (node.right !== null) {
@@ -113,7 +123,7 @@ Deleting node with value = ${value}
     }
   }
 
-  return { buildTree, deleteItem, find, insert, prettyPrint };
+  return { buildTree, deleteItem, find, insert, levelOrder, prettyPrint };
 };
 
 export default createTree;
