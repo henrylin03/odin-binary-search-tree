@@ -102,6 +102,7 @@ Deleting node with value = ${value}
     return null;
   }
 
+  // bfs
   function levelOrder(callback) {
     if (arguments.length === 0 || typeof callback !== "function")
       throw new TypeError("Parameter is not a callback function!");
@@ -116,7 +117,8 @@ Deleting node with value = ${value}
     }
   }
 
-  function inOrder(callback) {
+  // dfs
+  function preOrder(callback) {
     if (arguments.length === 0 || typeof callback !== "function")
       throw new TypeError("Parameter is not a callback function!");
   }
@@ -136,9 +138,9 @@ Deleting node with value = ${value}
     buildTree,
     deleteItem,
     find,
-    inOrder,
     insert,
     levelOrder,
+    preOrder,
     prettyPrint,
   };
 };
