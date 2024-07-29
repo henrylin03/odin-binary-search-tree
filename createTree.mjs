@@ -142,6 +142,10 @@ Deleting node with value = ${value}`);
     return res;
   }
 
+  function rebalance() {
+    return;
+  }
+
   // bfs
   function levelOrder(callback) {
     if (arguments.length === 0 || typeof callback !== "function")
@@ -225,6 +229,7 @@ Deleting node with value = ${value}`);
     preOrder,
     prettyPrint,
     postOrder,
+    rebalance,
   };
 };
 
