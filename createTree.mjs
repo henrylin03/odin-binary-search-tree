@@ -121,6 +121,17 @@ Deleting node with value = ${value}
   function preOrder(callback) {
     if (arguments.length === 0 || typeof callback !== "function")
       throw new TypeError("Parameter is not a callback function!");
+
+    const traverse = (rootNode) => {
+      if (rootNode === null) return;
+
+      callback(rootNode);
+      
+      traverse(rootNode.left);
+      traverse(rootNode.right);
+    };
+
+    return traverse(root);
   }
 
   function prettyPrint(node = root, prefix = "", isLeft = true) {
