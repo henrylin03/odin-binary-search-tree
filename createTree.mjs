@@ -124,10 +124,22 @@ Deleting node with value = ${value}
 
     const traverse = (rootNode) => {
       if (rootNode === null) return;
-
       callback(rootNode);
-      
       traverse(rootNode.left);
+      traverse(rootNode.right);
+    };
+
+    return traverse(root);
+  }
+
+  function inOrder(callback) {
+    if (arguments.length === 0 || typeof callback !== "function")
+      throw new TypeError("Parameter is not a callback function!");
+
+    const traverse = (rootNode) => {
+      if (rootNode === null) return;
+      traverse(rootNode.left);
+      callback(rootNode);
       traverse(rootNode.right);
     };
 
@@ -149,6 +161,7 @@ Deleting node with value = ${value}
     buildTree,
     deleteItem,
     find,
+    inOrder,
     insert,
     levelOrder,
     preOrder,

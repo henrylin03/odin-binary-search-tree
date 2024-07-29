@@ -8,5 +8,5 @@ const tree = createTree(testArray);
 tree.buildTree();
 tree.prettyPrint();
 
-// test levelOrder traversal
-tree.preOrder(printData); // expected: 8, 3, 1, 2, 5, 4, 7, 23, 9, 10, 324, 67, 6345
+// test inOrder traversal
+tree.inOrder(printData);
