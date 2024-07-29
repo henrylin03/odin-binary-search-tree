@@ -102,6 +102,20 @@ Deleting node with value = ${value}
     return null;
   }
 
+  function levelOrder(callback) {
+    if (arguments.length === 0 || typeof callback !== "function")
+      throw new TypeError("Parameter is not a callback function!");
+
+    const queue = [root];
+    while (queue.length) {
+      const currentNode = queue.shift();
+      callback(currentNode);
+
+      if (currentNode.left) queue.push(currentNode.left);
+      if (currentNode.right) queue.push(currentNode.right);
+    }
+  }
+
   function prettyPrint(node = root, prefix = "", isLeft = true) {
     if (node === null) return;
     if (node.right !== null) {
@@ -113,7 +127,7 @@ Deleting node with value = ${value}
     }
   }
 
-  return { buildTree, deleteItem, find, insert, prettyPrint };
+  return { buildTree, deleteItem, find, insert, levelOrder, prettyPrint };
 };
 
 export default createTree;
