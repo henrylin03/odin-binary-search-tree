@@ -103,7 +103,9 @@ Deleting node with value = ${value}
   }
 
   function levelOrder(callback) {
-    // throw error if callback function not provided (or is not a function)
+    if (arguments.length === 0 || typeof callback !== "function")
+      throw new TypeError("Parameter is not a callback function!");
+
     // level order traverse and apply callback function to every node
     const queue = [];
     // visit node at the start of queue (FIFO)
