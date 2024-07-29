@@ -8,5 +8,5 @@ const tree = createTree(testArray);
 tree.buildTree();
 tree.prettyPrint();
 
-// test inOrder traversal
-tree.inOrder(printData);
+// test traversal
+tree.postOrder(printData);

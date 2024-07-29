@@ -146,6 +146,21 @@ Deleting node with value = ${value}
     return traverse(root);
   }
 
+  function postOrder(callback) {
+    if (arguments.length === 0 || typeof callback !== "function")
+      throw new TypeError("Parameter is not a callback function!");
+
+    const traverse = (rootNode) => {
+      if (rootNode === null) return;
+      traverse(rootNode.left);
+      traverse(rootNode.right);
+      callback(rootNode);
+    };
+
+    return traverse(root);
+  }
+
+  // printing
   function prettyPrint(node = root, prefix = "", isLeft = true) {
     if (node === null) return;
     if (node.right !== null) {
@@ -166,6 +181,7 @@ Deleting node with value = ${value}
     levelOrder,
     preOrder,
     prettyPrint,
+    postOrder,
   };
 };
 
