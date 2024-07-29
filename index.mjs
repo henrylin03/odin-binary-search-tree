@@ -6,10 +6,12 @@ const tree = createTree(testArray);
 
 tree.buildTree();
 tree.prettyPrint();
-
 console.log(tree.isBalanced()); // expected true
 
-// TODO: CREATE AN UNBALANCED TREE AND THEN TEST
+// create an unbalanced tree by removing two levels on the right-most subtree
+tree.deleteItem(6345);
+tree.deleteItem(67);
+tree.deleteItem(324);
 
-//TODO: CREATE A BALANCED TREE AND TEST
-console.log(tree.isBalanced()); // expected true
+tree.prettyPrint();
+console.log(tree.isBalanced()); // expected false

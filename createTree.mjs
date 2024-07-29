@@ -46,8 +46,7 @@ const createTree = (inputArr) => {
 
   function deleteItem(value) {
     console.log(`
-Deleting node with value = ${value}
-    `);
+Deleting node with value = ${value}`);
     const getNextLargestData = (node) => {
       let res = node.data;
 
@@ -127,7 +126,16 @@ Deleting node with value = ${value}
   }
 
   function isBalanced() {
-    return true; // or false - returns boolean
+    const isBalancedSubtree = (node) => {
+      if (node === null) return true;
+      return (
+        isBalancedSubtree(node.left) &&
+        isBalancedSubtree(node.right) &&
+        Math.abs(height(node.left) - height(node.right)) <= 1
+      );
+    };
+
+    return isBalancedSubtree(root);
   }
 
   // bfs
