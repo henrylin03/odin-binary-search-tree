@@ -98,7 +98,7 @@ Deleting node with value = ${value}
       else if (currentNode.data < value) currentNode = currentNode.right;
     }
 
-    console.error(`Value, ${value}, was not found`);
+    console.error(`Value, ${value} was not found`);
     return null;
   }
 
@@ -110,16 +110,20 @@ Deleting node with value = ${value}
   }
 
   function depth(node) {
-    const findDepth = (currentNode, currentDepth) => {
-      if (currentNode === null) return -1; // base case 1
-      if (currentNode === node) return currentDepth; // base case 2: node is found
+    if (node === null) return console.error(`Node was not found`);
 
-      const leftDepth = findDepth(currentNode.left, currentDepth++);
-      const rightDepth = findDepth(currentNode.right, currentDepth++);
-      return Math.max(leftDepth, rightDepth);
-    };
+    let depth = 0;
+    let currentNode = root;
 
-    return findDepth(root, 0);
+    while (currentNode) {
+      if (currentNode === node) return depth;
+      if (currentNode.data < node.data) currentNode = currentNode.right;
+      else currentNode = currentNode.left;
+
+      depth++;
+    }
+
+    return console.error(`Node with value ${node.data} was not found`);
   }
 
   // bfs
