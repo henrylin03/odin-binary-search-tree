@@ -102,6 +102,13 @@ Deleting node with value = ${value}
     return null;
   }
 
+  function height(node) {
+    if (node === null) return -1;
+    const leftHeight = height(node.left);
+    const rightHeight = height(node.right);
+    return 1 + Math.max(leftHeight, rightHeight);
+  }
+
   // bfs
   function levelOrder(callback) {
     if (arguments.length === 0 || typeof callback !== "function")
@@ -176,6 +183,7 @@ Deleting node with value = ${value}
     buildTree,
     deleteItem,
     find,
+    height,
     inOrder,
     insert,
     levelOrder,
