@@ -102,6 +102,7 @@ Deleting node with value = ${value}
     return null;
   }
 
+  // bfs
   function levelOrder(callback) {
     if (arguments.length === 0 || typeof callback !== "function")
       throw new TypeError("Parameter is not a callback function!");
@@ -116,6 +117,23 @@ Deleting node with value = ${value}
     }
   }
 
+  // dfs
+  function preOrder(callback) {
+    if (arguments.length === 0 || typeof callback !== "function")
+      throw new TypeError("Parameter is not a callback function!");
+
+    const traverse = (rootNode) => {
+      if (rootNode === null) return;
+
+      callback(rootNode);
+      
+      traverse(rootNode.left);
+      traverse(rootNode.right);
+    };
+
+    return traverse(root);
+  }
+
   function prettyPrint(node = root, prefix = "", isLeft = true) {
     if (node === null) return;
     if (node.right !== null) {
@@ -127,7 +145,15 @@ Deleting node with value = ${value}
     }
   }
 
-  return { buildTree, deleteItem, find, insert, levelOrder, prettyPrint };
+  return {
+    buildTree,
+    deleteItem,
+    find,
+    insert,
+    levelOrder,
+    preOrder,
+    prettyPrint,
+  };
 };
 
 export default createTree;
