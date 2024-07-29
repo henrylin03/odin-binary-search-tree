@@ -4,7 +4,7 @@ const testArray = [1, 2, 7, 4, 23, 8, 9, 10, 4, 3, 5, 7, 9, 67, 6345, 324];
 
 const tree = createTree(testArray);
 
-tree.buildTree();
+tree.buildTree(testArray);
 tree.prettyPrint();
 console.log(tree.isBalanced()); // expected true
 
@@ -17,6 +17,6 @@ tree.prettyPrint();
 console.log(tree.isBalanced()); // expected false
 
 // rebalancing
-tree.rebalance();
+// tree.rebalance();
 tree.prettyPrint();
 console.log(tree.isBalanced()); // expected true
