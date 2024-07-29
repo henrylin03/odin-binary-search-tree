@@ -9,4 +9,4 @@ tree.buildTree();
 tree.prettyPrint();
 
 // test levelOrder traversal
-tree.levelOrder(printData);
+tree.inOrder(printData);
