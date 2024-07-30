@@ -56,3 +56,20 @@ Rebalancing tree...`);
 tree.rebalance();
 tree.prettyPrint();
 console.log(`Tree is balanced: ${tree.isBalanced()}`); // false
+
+// printing
+console.log(`
+Printing nodes in level order (breadth-first):`);
+tree.levelOrder(printNodeData);
+
+console.log(`
+Printing nodes in preorder (depth-first):`);
+tree.preOrder(printNodeData);
+
+console.log(`
+Printing nodes in postorder (depth-first):`);
+tree.postOrder(printNodeData);
+
+console.log(`
+Printing nodes in inorder (depth-first):`);
+tree.inOrder(printNodeData);
