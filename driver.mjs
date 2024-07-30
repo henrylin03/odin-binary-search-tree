@@ -1,5 +1,3 @@
-// driver script
-
 import createTree from "./createTree.mjs";
 
 // HELPERS //
