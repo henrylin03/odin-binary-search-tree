@@ -147,7 +147,6 @@ Deleting node with value = ${value}`);
     const pushToSortedArr = (node) => sortedArr.push(node.data);
 
     inOrder(pushToSortedArr);
-    console.log(sortedArr);
     root = buildTree(sortedArr);
     return root;
   }

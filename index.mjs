@@ -17,6 +17,6 @@ tree.prettyPrint();
 console.log(tree.isBalanced()); // expected false
 
 // rebalancing
-// tree.rebalance();
+tree.rebalance();
 tree.prettyPrint();
 console.log(tree.isBalanced()); // expected true
