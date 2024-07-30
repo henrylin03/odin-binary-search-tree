@@ -3,15 +3,10 @@
 import createTree from "./createTree.mjs";
 
 // HELPERS //
-const generateArrOfRandomNumbers = (numberOfElements = 7) => {
-  const MIN_NUMBER = 0;
-  const MAX_NUMBER = 100;
-
+const generateArrOfRandomNumbers = (min, max, numberOfElements = 7) => {
   const res = [];
   for (let count = 1; count <= numberOfElements; count++)
-    res.push(
-      Math.floor(Math.random() * (MAX_NUMBER - MIN_NUMBER) + MIN_NUMBER)
-    );
+    res.push(Math.floor(Math.random() * (max - min) + min));
 
   return res;
 };
@@ -21,7 +16,7 @@ const printNodeData = (node) => {
 };
 
 // MAIN //
-const testArray = generateArrOfRandomNumbers(10);
+const testArray = generateArrOfRandomNumbers(0, 100, 10);
 
 const tree = createTree(testArray);
 tree.buildTree(testArray);
@@ -46,3 +41,5 @@ tree.postOrder(printNodeData);
 console.log(`
 Printing nodes in inorder (depth-first):`);
 tree.inOrder(printNodeData);
+
+// make unbalanced
