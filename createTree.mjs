@@ -5,14 +5,14 @@ const sortAndDeduplicateArray = (inputArr) =>
 
 const createTree = (inputArr) => {
   const cleanedArr = sortAndDeduplicateArray(inputArr);
-  const root = buildTree();
+  let root = buildTree(cleanedArr);
 
-  function buildTree() {
+  function buildTree(arr) {
     const sortedArrayToBST = (start, end) => {
       if (start > end) return null;
 
       const midIdx = parseInt((start + end) / 2);
-      const node = createNode(cleanedArr[midIdx]);
+      const node = createNode(arr[midIdx]);
 
       node.left = sortedArrayToBST(start, midIdx - 1);
       node.right = sortedArrayToBST(midIdx + 1, end);
@@ -20,7 +20,7 @@ const createTree = (inputArr) => {
       return node;
     };
 
-    return sortedArrayToBST(0, cleanedArr.length - 1);
+    return sortedArrayToBST(0, arr.length - 1);
   }
 
   function insert(value) {
@@ -142,6 +142,15 @@ Deleting node with value = ${value}`);
     return res;
   }
 
+  function rebalance() {
+    const sortedArr = [];
+    const pushToSortedArr = (node) => sortedArr.push(node.data);
+
+    inOrder(pushToSortedArr);
+    root = buildTree(sortedArr);
+    return root;
+  }
+
   // bfs
   function levelOrder(callback) {
     if (arguments.length === 0 || typeof callback !== "function")
@@ -225,6 +234,7 @@ Deleting node with value = ${value}`);
     preOrder,
     prettyPrint,
     postOrder,
+    rebalance,
   };
 };
 
