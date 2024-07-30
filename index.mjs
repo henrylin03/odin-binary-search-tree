@@ -20,6 +20,10 @@ const testArray = generateArrOfRandomNumbers(10)
 const tree = createTree(testArray);
 tree.buildTree(testArray);
 tree.prettyPrint();
+
+console.log(`Tree is balanced: ${tree.isBalanced()}`)
+
+
 // console.log(tree.isBalanced()); // expected true
 
 // // create an unbalanced tree by removing two levels on the right-most subtree
