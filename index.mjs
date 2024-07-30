@@ -2,6 +2,7 @@
 
 import createTree from "./createTree.mjs";
 
+// HELPERS //
 const generateArrOfRandomNumbers = (numberOfElements = 7) => {
   const MIN_NUMBER = 0;
   const MAX_NUMBER = 100;
@@ -15,26 +16,33 @@ const generateArrOfRandomNumbers = (numberOfElements = 7) => {
   return res;
 };
 
-const testArray = generateArrOfRandomNumbers(10)
+const printNodeData = (node) => {
+  if (node.data) console.log(node.data);
+};
+
+// MAIN //
+const testArray = generateArrOfRandomNumbers(10);
 
 const tree = createTree(testArray);
 tree.buildTree(testArray);
 tree.prettyPrint();
 
-console.log(`Tree is balanced: ${tree.isBalanced()}`)
+// checking balance
+console.log(`Tree is balanced: ${tree.isBalanced()}`);
 
+// printing
+console.log(`
+Printing nodes in level order (breadth-first):`);
+tree.levelOrder(printNodeData);
 
-// console.log(tree.isBalanced()); // expected true
+console.log(`
+Printing nodes in preorder (depth-first):`);
+tree.preOrder(printNodeData);
 
-// // create an unbalanced tree by removing two levels on the right-most subtree
-// tree.deleteItem(6345);
-// tree.deleteItem(67);
-// tree.deleteItem(324);
+console.log(`
+Printing nodes in postorder (depth-first):`);
+tree.postOrder(printNodeData);
 
-// tree.prettyPrint();
-// console.log(tree.isBalanced()); // expected false
-
-// // rebalancing
-// tree.rebalance();
-// tree.prettyPrint();
-// console.log(tree.isBalanced()); // expected true
+console.log(`
+Printing nodes in inorder (depth-first):`);
+tree.inOrder(printNodeData);
