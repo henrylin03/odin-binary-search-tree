@@ -43,3 +43,7 @@ Printing nodes in inorder (depth-first):`);
 tree.inOrder(printNodeData);
 
 // make unbalanced
+const arrToUnbalanceTree = generateArrOfRandomNumbers(100, 1000, 5);
+arrToUnbalanceTree.forEach((elem) => tree.insert(elem));
+tree.prettyPrint();
+// console.log(`Tree is balanced: ${tree.isBalanced()}`); // false
